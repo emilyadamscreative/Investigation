@@ -1,0 +1,29 @@
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "Initializing Public Records Research Environment..."
+
+python3 -m pip install --user --upgrade \
+  requests \
+  beautifulsoup4 \
+  lxml \
+  pandas \
+  openpyxl \
+  pypdf \
+  python-dateutil \
+  rapidfuzz \
+  duckduckgo-search \
+  networkx \
+  python-dotenv
+
+mkdir -p research/{cases,sources,reports,exports}
+
+cat > research/.gitignore <<'EOF'
+cases/
+reports/
+exports/
+.env
+EOF
+
+echo "Research environment ready."
